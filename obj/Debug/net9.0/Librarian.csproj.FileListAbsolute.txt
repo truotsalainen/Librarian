@@ -1,0 +1,14 @@
+C:\Users\truot\Repos\Librarian\obj\Debug\net9.0\Librarian.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\truot\Repos\Librarian\obj\Debug\net9.0\Librarian.AssemblyInfoInputs.cache
+C:\Users\truot\Repos\Librarian\obj\Debug\net9.0\Librarian.AssemblyInfo.cs
+C:\Users\truot\Repos\Librarian\obj\Debug\net9.0\Librarian.csproj.CoreCompileInputs.cache
+C:\Users\truot\Repos\Librarian\bin\Debug\net9.0\Librarian.exe
+C:\Users\truot\Repos\Librarian\bin\Debug\net9.0\Librarian.deps.json
+C:\Users\truot\Repos\Librarian\bin\Debug\net9.0\Librarian.runtimeconfig.json
+C:\Users\truot\Repos\Librarian\bin\Debug\net9.0\Librarian.dll
+C:\Users\truot\Repos\Librarian\bin\Debug\net9.0\Librarian.pdb
+C:\Users\truot\Repos\Librarian\obj\Debug\net9.0\Librarian.dll
+C:\Users\truot\Repos\Librarian\obj\Debug\net9.0\refint\Librarian.dll
+C:\Users\truot\Repos\Librarian\obj\Debug\net9.0\Librarian.pdb
+C:\Users\truot\Repos\Librarian\obj\Debug\net9.0\Librarian.genruntimeconfig.cache
+C:\Users\truot\Repos\Librarian\obj\Debug\net9.0\ref\Librarian.dll
