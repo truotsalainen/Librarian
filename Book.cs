@@ -1,15 +1,21 @@
 namespace Librarian
 {
-    public class Book
+    public class Book : IComparable<Book>
     {
-        public string Title { get; private set; }
-        public string Author { get; private set; }
-        public int PubYear { get; private set; }
-        public string Genre { get; private set; }
+        public string Title { get; set; }
+        public string Author { get; set; }
+        public int PubYear { get; set; }
+        public string Genre { get; set; }
 
-        public Book(string name, string author, int pubYear, string genre)
+        public int CompareTo(Book book)
         {
-            this.Title = name;
+            int comparison = this.Genre.CompareTo(book.Genre);
+            return comparison;
+        }
+        
+        public Book(string title, string author, int pubYear, string genre)
+        {
+            this.Title = title;
             this.Author = author;
             this.PubYear = pubYear;
             this.Genre = genre;
