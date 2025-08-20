@@ -240,7 +240,7 @@ class Program
             Console.WriteLine("Enter author:");
             string author = (Console.ReadLine() ?? "" ).Trim();
             List<Book> hits = new List<Book>();
-            if (title == null && author == null)
+            if (string.IsNullOrEmpty(title) && string.IsNullOrEmpty(author))
             {
                 Console.WriteLine("Enter at least one parameter for your search!");
             }
