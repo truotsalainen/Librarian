@@ -124,25 +124,28 @@ class Program
             while (createAnswer != "Y" && createAnswer != "N")
             {
                 Console.WriteLine("No saved library found. Start a new one? (Y/N)");
-                createAnswer = Console.ReadLine().ToUpper();
+                createAnswer = (Console.ReadLine() ?? "").ToUpper();
 
                 if (createAnswer != "Y" && createAnswer != "N")
                 {
                     Console.WriteLine("Answer Y(es) or N(o) !");
                 }
             }
-
-            if (createAnswer == "Y")
+            if (createAnswer == null)
             {
-                Console.WriteLine("Creating new library");
                 return new List<Book>();
             }
-            else if (createAnswer == "N")
-            {
-                Console.WriteLine("Goodbye!");
-                Environment.Exit(0);
-                return null;
-            }
+            if (createAnswer == "Y")
+                {
+                    Console.WriteLine("Creating new library");
+                    return new List<Book>();
+                }
+                else if (createAnswer == "N")
+                {
+                    Console.WriteLine("Goodbye!");
+                    Environment.Exit(0);
+                    return null;
+                }
         }
         string json = File.ReadAllText("library.json");
         List<Book>? books = JsonSerializer.Deserialize<List<Book>>(json);
