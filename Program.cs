@@ -150,7 +150,7 @@ class Program
         string json = File.ReadAllText("library.json");
         List<Book>? books = JsonSerializer.Deserialize<List<Book>>(json);
         Console.WriteLine("Library loaded from file.");
-        return books!;
+        return books ?? new List<Book>();
     }
 
     static void AddBook(List<Book> books)
