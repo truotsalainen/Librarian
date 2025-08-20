@@ -16,7 +16,7 @@ class Program
         while (loadAnswer != "Y" && loadAnswer != "N")
         {
             Console.WriteLine("Would you like to load a library? (Y/N)");
-            loadAnswer = Console.ReadLine().ToUpper();
+            loadAnswer = (Console.ReadLine() ?? "" ).ToUpper();
 
             if (loadAnswer != "Y" && loadAnswer != "N")
             {
@@ -41,7 +41,7 @@ class Program
         {
             Console.WriteLine("What would you like to do?");
             Console.WriteLine($"(A)dd   (R)emove    (S)earch    (B)rowse by genre   (L)ist all books   (Q)uit");
-            topMenuSelect = Console.ReadLine().ToUpper();
+            topMenuSelect = (Console.ReadLine() ?? "" ).ToUpper();
 
             if (topMenuSelect == "A")
             {
@@ -157,20 +157,20 @@ class Program
     {
         Console.WriteLine("Adding new book");
         Console.WriteLine("Enter title:");
-        string title = Console.ReadLine().Trim();
+        string title = (Console.ReadLine() ?? "" ).Trim();
         Console.WriteLine("Enter author:");
-        string author = Console.ReadLine().Trim();
+        string author = (Console.ReadLine() ?? "" ).Trim();
         int yearInt = 0;
         bool isNumber = false;
         while (!isNumber)
         {
             Console.WriteLine("Enter year of publication:");
-            string yearString = Console.ReadLine().Trim();
+            string yearString = (Console.ReadLine() ?? "" ).Trim();
             isNumber = int.TryParse(yearString, out yearInt);
             if (!isNumber) Console.WriteLine("Enter a valid year!");
         }
         Console.WriteLine("Enter genre:");
-        string genre = Console.ReadLine().ToLower().Trim();
+        string genre = (Console.ReadLine() ?? "" ).ToLower().Trim();
 
         Book newBook = new Book(title, author, yearInt, genre);
 
@@ -236,11 +236,11 @@ class Program
         while (true)
         {
             Console.WriteLine("Enter title:");
-            string title = Console.ReadLine().Trim();
+            string title = (Console.ReadLine() ?? "" ).Trim();
             Console.WriteLine("Enter author:");
-            string author = Console.ReadLine().Trim();
+            string author = (Console.ReadLine() ?? "" ).Trim();
             List<Book> hits = new List<Book>();
-            if (title == null && author == null)
+            if (string.IsNullOrEmpty(title) && string.IsNullOrEmpty(author))
             {
                 Console.WriteLine("Enter at least one parameter for your search!");
             }
