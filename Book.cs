@@ -7,8 +7,9 @@ namespace Librarian
         public int PubYear { get; set; }
         public string Genre { get; set; }
 
-        public int CompareTo(Book book)
+        public int CompareTo(Book? book)
         {
+            if (book == null) return 1;
             int comparison = this.Genre.CompareTo(book.Genre);
             return comparison;
         }
