@@ -12,7 +12,7 @@ class Program
     {
         List<Book> books;
         Console.WriteLine("Welcome to Librarian!");
-        string loadAnswer = null;
+        string? loadAnswer = null;
         while (loadAnswer != "Y" && loadAnswer != "N")
         {
             Console.WriteLine("Would you like to load a library? (Y/N)");
@@ -34,7 +34,7 @@ class Program
             books = new List<Book>();
         }
 
-        string topMenuSelect = null;
+        string? topMenuSelect = null;
 
 
         while (topMenuSelect != "Q")
@@ -120,32 +120,35 @@ class Program
     {
         if (!File.Exists("library.json"))
         {
-            string createAnswer = null;
+            string? createAnswer = null;
             while (createAnswer != "Y" && createAnswer != "N")
             {
                 Console.WriteLine("No saved library found. Start a new one? (Y/N)");
-                createAnswer = Console.ReadLine().ToUpper();
+                createAnswer = (Console.ReadLine() ?? "").ToUpper();
 
                 if (createAnswer != "Y" && createAnswer != "N")
                 {
                     Console.WriteLine("Answer Y(es) or N(o) !");
                 }
             }
-
-            if (createAnswer == "Y")
+            if (createAnswer == null)
             {
-                Console.WriteLine("Creating new library");
                 return new List<Book>();
             }
-            else if (createAnswer == "N")
-            {
-                Console.WriteLine("Goodbye!");
-                Environment.Exit(0);
-                return null;
-            }
+            if (createAnswer == "Y")
+                {
+                    Console.WriteLine("Creating new library");
+                    return new List<Book>();
+                }
+                else if (createAnswer == "N")
+                {
+                    Console.WriteLine("Goodbye!");
+                    Environment.Exit(0);
+                    return null;
+                }
         }
         string json = File.ReadAllText("library.json");
-        List<Book> books = JsonSerializer.Deserialize<List<Book>>(json);
+        List<Book>? books = JsonSerializer.Deserialize<List<Book>>(json);
         Console.WriteLine("Library loaded from file.");
         return books;
     }
