@@ -52,7 +52,7 @@ class Program
             else if (topMenuSelect == "S")
             {
 
-                List<Book> searchResults = FindBook(books);
+                List<Book>? searchResults = FindBook(books);
                 if (searchResults == null)
                 {
                     Console.WriteLine("No books match your query!");
@@ -150,7 +150,7 @@ class Program
         string json = File.ReadAllText("library.json");
         List<Book>? books = JsonSerializer.Deserialize<List<Book>>(json);
         Console.WriteLine("Library loaded from file.");
-        return books;
+        return books!;
     }
 
     static void AddBook(List<Book> books)
@@ -190,7 +190,7 @@ class Program
     {
         Book bookToRemove;
         Console.WriteLine("Removing book, enter search parameters:");
-        List<Book> hits = FindBook(books);
+        List<Book>? hits = FindBook(books);
         if (hits == null)
         {
             Console.WriteLine("No books match your query!");
@@ -231,7 +231,7 @@ class Program
     }
 
     //Searches library for a book by title and author, returns a list of books that match the criteria
-    static List<Book> FindBook(List<Book> books)
+    static List<Book>? FindBook(List<Book> books)
     {
         while (true)
         {
